@@ -10,7 +10,7 @@ vars:
 schedule:
   system_preparation:
     - console/system_prepare
-    - console/hostname
+    - console/hostname_error
     - console/force_scheduled_tasks
   system_validation:
     - console/enable_usb_repo
