@@ -30,8 +30,7 @@
           <li><a href="#qesap_get_roles_code-Get-the-Ansible-roles-code-from-github.com-sap-linuxlab-community.sles-for-sap">qesap_get_roles_code Get the Ansible roles code from github.com/sap-linuxlab/community.sles-for-sap</a></li>
           <li><a href="#qesap_yaml_replace">qesap_yaml_replace</a></li>
           <li><a href="#qesap_execute">qesap_execute</a></li>
-          <li><a href="#qesap_ansible_log_find_timeout">qesap_ansible_log_find_timeout</a></li>
-          <li><a href="#qesap_ansible_log_find_missing_sudo_password">qesap_ansible_log_find_missing_sudo_password</a></li>
+          <li><a href="#qesap_file_find_string">qesap_file_find_string</a></li>
           <li><a href="#qesap_get_inventory">qesap_get_inventory</a></li>
           <li><a href="#qesap_get_nodes_number">qesap_get_nodes_number</a></li>
           <li><a href="#qesap_get_terraform_dir">qesap_get_terraform_dir</a></li>
@@ -54,6 +53,7 @@
           <li><a href="#qesap_az_get_resource_group">qesap_az_get_resource_group</a></li>
           <li><a href="#qesap_az_calculate_address_range">qesap_az_calculate_address_range</a></li>
           <li><a href="#qesap_az_vnet_peering">qesap_az_vnet_peering</a></li>
+          <li><a href="#qesap_az_simple_peering_delete">qesap_az_simple_peering_delete</a></li>
           <li><a href="#qesap_az_vnet_peering_delete">qesap_az_vnet_peering_delete</a></li>
           <li><a href="#qesap_az_get_peering_name">qesap_az_get_peering_name</a></li>
           <li><a href="#qesap_aws_get_region_subnets">qesap_aws_get_region_subnets</a></li>
@@ -70,8 +70,11 @@
           <li><a href="#qesap_add_server_to_hosts">qesap_add_server_to_hosts</a></li>
           <li><a href="#qesap_import_instances">qesap_import_instances</a></li>
           <li><a href="#qesap_export_instances">qesap_export_instances</a></li>
+          <li><a href="#qesap_is_job_finished">qesap_is_job_finished</a></li>
+          <li><a href="#qesap_az_get_active_peerings">qesap_az_get_active_peerings</a></li>
         </ul>
       </li>
+      <li><a href="#qesap_az_clean_old_peerings">qesap_az_clean_old_peerings</a></li>
     </ul>
   </li>
   <li><a href="#POD-ERRORS">POD ERRORS</a></li>
@@ -209,19 +212,32 @@ Test only returns execution result, failure has to be handled by calling method.
 <dd>
 
 </dd>
-<dt id="TIMEOUT---max-expected-execution-time-back"><b>TIMEOUT</b> - max expected execution time =back</dt>
+<dt id="TIMEOUT---max-expected-execution-time"><b>TIMEOUT</b> - max expected execution time</dt>
+<dd>
+
+</dd>
+<dt id="LOGNAME---filename-of-the-log-file.-This-argument-is-optional-if-not-specified-the-log-filename-is-internally-calculated-using-content-from-CMD-and-CMD_OPTIONS.-back"><b>LOGNAME</b> - filename of the log file. This argument is optional, if not specified the log filename is internally calculated using content from CMD and CMD_OPTIONS. =back</dt>
 <dd>
 
 </dd>
 </dl>
 
-<h3 id="qesap_ansible_log_find_timeout">qesap_ansible_log_find_timeout</h3>
+<h3 id="qesap_file_find_string">qesap_file_find_string</h3>
 
-<pre><code>Return the Timeout error found in the Ansible log or not</code></pre>
+<pre><code>Search for a string in the Ansible log file.
+Returns 1 if the string is found in the log file, 0 otherwise.</code></pre>
 
-<h3 id="qesap_ansible_log_find_missing_sudo_password">qesap_ansible_log_find_missing_sudo_password</h3>
+<dl>
 
-<pre><code>Return the &#39;&quot;msg&quot;: &quot;Missing sudo password&quot;&#39; error found in the Ansible log or not</code></pre>
+<dt id="FILE---Path-to-the-Ansible-log-file.-Required"><b>FILE</b> - Path to the Ansible log file. (Required)</dt>
+<dd>
+
+</dd>
+<dt id="SEARCH_STRING---String-to-search-for-in-the-log-file.-Required-back"><b>SEARCH_STRING</b> - String to search for in the log file. (Required) =back</dt>
+<dd>
+
+</dd>
+</dl>
 
 <h3 id="qesap_get_inventory">qesap_get_inventory</h3>
 
@@ -416,7 +432,7 @@ remotely executed command.</code></pre>
 <dd>
 
 </dd>
-<dt id="TIMEOUT---max-expected-execution-time"><b>TIMEOUT</b> - max expected execution time</dt>
+<dt id="TIMEOUT---max-expected-execution-time1"><b>TIMEOUT</b> - max expected execution time</dt>
 <dd>
 
 </dd>
@@ -618,6 +634,30 @@ the two provided deployments.</code></pre>
 
 </dd>
 <dt id="TIMEOUT---default-is-5-mins"><b>TIMEOUT</b> - default is 5 mins</dt>
+<dd>
+
+</dd>
+</dl>
+
+<h3 id="qesap_az_simple_peering_delete">qesap_az_simple_peering_delete</h3>
+
+<pre><code>Delete a single peering one way</code></pre>
+
+<dl>
+
+<dt id="RG---Name-of-the-resource-group"><b>RG</b> - Name of the resource group</dt>
+<dd>
+
+</dd>
+<dt id="VNET_NAME---Name-of-the-vnet"><b>VNET_NAME</b> - Name of the vnet</dt>
+<dd>
+
+</dd>
+<dt id="PEERING_NAME---Name-of-the-peering"><b>PEERING_NAME</b> - Name of the peering</dt>
+<dd>
+
+</dd>
+<dt id="TIMEOUT---Optional-Timeout-for-the-script_run-command"><b>TIMEOUT</b> - (Optional) Timeout for the script_run command</dt>
 <dd>
 
 </dd>
@@ -858,25 +898,75 @@ qesap_import_instances(&lt;$test_id&gt;)</code></pre>
 <pre><code>Downloads assets required for re-using infrastructure from previously exported test.
 qesap_export_instances()</code></pre>
 
+<h3 id="qesap_is_job_finished">qesap_is_job_finished</h3>
+
+<pre><code>Get whether a specified job is still running or not</code></pre>
+
+<dl>
+
+<dt id="JOB_ID---id-of-job-to-check"><b>JOB_ID</b> - id of job to check</dt>
+<dd>
+
+</dd>
+</dl>
+
+<h3 id="qesap_az_get_active_peerings">qesap_az_get_active_peerings</h3>
+
+<pre><code>Get active peerings for Azure jobs</code></pre>
+
+<dl>
+
+<dt id="RG---Resource-group-in-question"><b>RG</b> - Resource group in question</dt>
+<dd>
+
+</dd>
+<dt id="VNET---vnet-name-of-rg"><b>VNET</b> - vnet name of rg</dt>
+<dd>
+
+</dd>
+</dl>
+
+<h2 id="qesap_az_clean_old_peerings">qesap_az_clean_old_peerings</h2>
+
+<pre><code>Delete leftover peerings for Azure jobs that finished without cleaning up</code></pre>
+
+<dl>
+
+<dt id="RG---Resource-group-in-question1"><b>RG</b> - Resource group in question</dt>
+<dd>
+
+</dd>
+<dt id="VNET---vnet-name-of-rg1"><b>VNET</b> - vnet name of rg</dt>
+<dd>
+
+</dd>
+</dl>
+
 <h1 id="POD-ERRORS">POD ERRORS</h1>
 
 <p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
 
 <dl>
 
-<dt id="Around-line-429">Around line 429:</dt>
+<dt id="Around-line-441">Around line 441:</dt>
 <dd>
 
 <p>You forgot a &#39;=back&#39; before &#39;=head3&#39;</p>
 
 </dd>
-<dt id="Around-line-983">Around line 983:</dt>
+<dt id="Around-line-461">Around line 461:</dt>
 <dd>
 
 <p>You forgot a &#39;=back&#39; before &#39;=head3&#39;</p>
 
 </dd>
-<dt id="Around-line-1060">Around line 1060:</dt>
+<dt id="Around-line-989">Around line 989:</dt>
+<dd>
+
+<p>You forgot a &#39;=back&#39; before &#39;=head3&#39;</p>
+
+</dd>
+<dt id="Around-line-1066">Around line 1066:</dt>
 <dd>
 
 <p>&#39;=item&#39; outside of any &#39;=over&#39;</p>
