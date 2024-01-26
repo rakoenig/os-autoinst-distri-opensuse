@@ -9,4 +9,3 @@ schedule:
   add_on_product:
     - installation/module_selection/select_module_desktop
     - installation/add_on_product_installation/accept_add_on_installation
-...
