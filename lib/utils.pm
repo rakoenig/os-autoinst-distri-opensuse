@@ -2505,11 +2505,11 @@ sub install_patterns {
         if (($pt =~ /sap_server/) && is_sle('=11-SP4')) {
             next;
         }
-        # skip the installation of Amazon-Web-Service due to bsc#1202478
-        if (($pt =~ /Amazon-Web-Service/) && is_aarch64) {
-            record_soft_failure('bsc#1202478 - skip pattern Amazon-Web-Service');
-            next;
-        }
+        # skip the installation of Amazon-Web-Service due to bsc#1202478gi
+        #if (($pt =~ /Amazon-Web-Service/) && is_aarch64) {
+        #    record_soft_failure('bsc#1202478 - skip pattern Amazon-Web-Service');
+        #    next;
+        # }
         # For Public cloud module test we need install 'Tools' but not 'Instance' pattern if outside of public cloud images.
         next if (($pt =~ /OpenStack/) && ($pt !~ /Tools/) && !is_public_cloud);
         # skip installation of wsl_base, wsl_gui and wsl_systemd patterns due to bsc#1226314.
