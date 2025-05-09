@@ -1679,10 +1679,10 @@ sub prepare_disks {
                     shadow => get_var('ETC_SHADOW'));
             }
         }
-#        else {
-#            script_run "parted -s /dev/$d mklabel gpt";
-#            script_run "sync";
-#        }
+        else {
+            script_run "parted -s /dev/$d mklabel gpt";
+            script_run "sync";
+        }
     }
     script_run "lsblk";
 }

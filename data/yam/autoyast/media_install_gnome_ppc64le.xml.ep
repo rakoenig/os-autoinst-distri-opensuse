@@ -18,37 +18,37 @@
   <add-on>
     <add_on_products config:type="list">
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-basesystem</product>
         <product_dir>/Module-Basesystem</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-server-applications</product>
         <product_dir>/Module-Server-Applications</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-desktop-applications</product>
         <product_dir>/Module-Desktop-Applications</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-legacy</product>
         <product_dir>/Module-Legacy</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-development-tools</product>
 	<product_dir>/Module-Development-Tools</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-web-scripting</product>
         <product_dir>/Module-Web-Scripting</product_dir>
       </listentry>
       <listentry>
-        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD') %>-Media1]]></media_url>
+        <media_url><![CDATA[http://openqa.suse.de/assets/repo/SLE-<%= $get_var->('VERSION') %>-Full-ppc64le-Build<%= $get_var->('BUILD_SLE') %>-Media1]]></media_url>
         <product>sle-module-containers</product>
         <product_dir>/Module-Containers</product_dir>
       </listentry>
