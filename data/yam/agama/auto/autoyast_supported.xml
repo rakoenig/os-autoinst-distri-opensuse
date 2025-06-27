@@ -112,7 +112,7 @@ agama questions mode non-interactive
     </pre-scripts>
     <chroot-scripts config:type="list">
       <script>
-        <file_name>post.sh</file_name>
+        <filename>post.sh</filename>
         <chrooted config:type="boolean">true</chrooted>
         <source><![CDATA[
 #!/usr/bin/env bash
