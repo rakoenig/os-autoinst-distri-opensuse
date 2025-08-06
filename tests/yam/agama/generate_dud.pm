@@ -26,6 +26,11 @@ sub run {
     assert_script_run("curl -o tmp/dud/root/autoinst.json $profile_url");
     assert_script_run("mkdud --create $dud tmp/dud/root --dist tw");
     upload_asset($dud);
+
+    # https://progress.opensuse.org/issues/185713
+    $dud = "kernel-" . get_required_var('ARCH') . ".dud";
+    assert_script_run("mkdud --create $dud --dist sle16 /lib/modules/`uname -r`/kernel/fs/nfs/nfs.ko");
+    upload_asset($dud);
 }
 
 1;
