@@ -16,6 +16,7 @@ sub run {
     my $profile_url = get_required_var('AGAMA_PROFILE');
 
     select_console 'install-shell';
+    zypper_call("mr --disable 1");
 
     # https://progress.opensuse.org/issues/185122
     zypper_call("ar -f -G https://download.suse.de/ibs/SUSE:/SLFO:/Products:/SLES:/" . get_var('VERSION') . ":/PUBLISH/product/repo/SLES-" . get_var('VERSION') . "-" . get_var('ARCH') . "/?ssl_verify=no install");
