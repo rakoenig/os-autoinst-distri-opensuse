@@ -125,6 +125,7 @@
     <services config:type="map">
       <enable config:type="list">
         <service>sshd</service>
+        <service>NetworkManager</service>
       </enable>
     </services>
   </services-manager>
