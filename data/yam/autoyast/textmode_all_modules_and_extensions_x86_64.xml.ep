@@ -134,6 +134,7 @@
     </products>
     <packages config:type="list">
       <package>openssh</package>
+      <package>NetworkManager</package>
     </packages>
     <patterns config:type="list">
       <pattern>apparmor</pattern>
