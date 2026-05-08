@@ -22,6 +22,7 @@ sub run {
     # Add repo for devel:DMS when using proxy
     if ((get_var('SCC_URL', "") =~ /proxy/)) {
         my $repo_server = "https://download.opensuse.org/repositories/devel:/DMS/";
+        assert_script_run("echo 'url: " . get_var('SCC_URL') . "' > /etc/SUSEConnect");
         my $repo_url = $repo_server . "SLE_" . (get_var('VERSION_UPGRADE_FROM') =~ s/-/_/gr);
         zypper_call("ar --refresh -p 90 '$repo_url' Migration");
     }
