@@ -37,7 +37,7 @@ sub run {
     my $reboot_page = $testapi::distri->get_reboot();
     my $spec = "spec.txt";
     my $tap = "tap.txt";
-    my $node_cmd = "node" .
+    my $node_cmd = "DEBUG_AGAMA=1 node" .
       " --enable-source-maps" .
       " --test-reporter=spec" .
       " --test-reporter=tap" .
